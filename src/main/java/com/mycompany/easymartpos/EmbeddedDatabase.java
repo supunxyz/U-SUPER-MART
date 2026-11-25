@@ -251,6 +251,8 @@ final class EmbeddedDatabase {
         String override = System.getenv("EASYMART_MARIADB_HOME");
         if (override != null && !override.isBlank() && Files.isRegularFile(Path.of(override, "bin", "mariadbd.exe"))) return Path.of(override);
         List<Path> candidates = new ArrayList<>();
+        // NetBeans and Maven run compiled classes from the project working directory.
+        candidates.add(Path.of("bundle", "mariadb").toAbsolutePath());
         String launcher = System.getProperty("jpackage.app-path");
         if (launcher != null && !launcher.isBlank()) candidates.add(Path.of(launcher).toAbsolutePath().getParent().resolve("mariadb"));
         try {

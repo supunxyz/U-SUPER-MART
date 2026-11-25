@@ -6,6 +6,8 @@ The Windows installer built with `jpackage --app-content bundle\mariadb ...` inc
 
 ## Setup
 
+When running the project from NetBeans, set the working directory to the project root (the default). The application finds `bundle/mariadb` there and starts its local database automatically, unless `EASYMART_DB_URL` is set. On first launch, create an administrator in the setup dialog.
+
 1. Create the `easymart_pos` MySQL database and run the migration files in numeric order (`V1`, `V2`, `V3`, then `V4`) once. V3 adds the login, purchase, batch-inventory, promotion, loyalty-card, expense, and cashier-shift tables used by the application.
 2. Configure database access without storing passwords in source code:
    - `EASYMART_DB_URL` (default: `jdbc:mysql://localhost:3306/easymart_pos`)
