@@ -1,0 +1,7 @@
+/target/
+/dist/
+/package-input/
+/nbproject/private/
+*.log
+db.properties
+/tools/classes/
